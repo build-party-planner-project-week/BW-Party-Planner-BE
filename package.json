@@ -1,0 +1,17 @@
+{
+  "name": "BW-Party-Planner-BE",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/build-party-planner-project-week/BW-Party-Planner-BE.git",
+  "author": "Tarmstrong95 <triston95strong@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "bcrypt": "^3.0.6",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "helmet": "^3.18.0",
+    "jsonwebtoken": "^8.5.1",
+    "knex": "^0.17.6",
+    "sqlite3": "^4.0.9"
+  }
+}
