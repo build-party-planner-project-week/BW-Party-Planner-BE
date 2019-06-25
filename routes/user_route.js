@@ -1,5 +1,5 @@
 const express = require('express')
-const db = require('../database/models/user_model/user_model')
+const db = require('../database/models/user_model')
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
 const secrets = require('../config/secrets')
