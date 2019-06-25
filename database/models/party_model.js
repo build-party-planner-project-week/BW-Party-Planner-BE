@@ -4,7 +4,8 @@ module.exports = {
 findParty,
 findEnter,
 findImage,
-findtodos
+findtodos,
+findshoplist
 }
 
 function findParty(userID) {
