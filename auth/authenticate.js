@@ -14,7 +14,11 @@ function authenticate(req, res, next) {
     if(token) {
         jwt.verify(token, jwtKey, (err, decoded) => {
             req.decoded = decoded
-            next()
+            if(req.decoded){
+                next()
+            }else{
+                res.status(404).json({message: "Not allowed entry!"})
+            }
         })
     }else {
         return res.status(401).json({
