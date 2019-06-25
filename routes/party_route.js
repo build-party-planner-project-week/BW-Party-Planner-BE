@@ -11,7 +11,7 @@ route.get('/user/:id/party', (req, res) => {
         .then(result => {
             res.send(result)
         }).catch(err => {
-            res.send(err)
+            res.send({error: err})
         })
 
 })
@@ -22,7 +22,7 @@ route.get('/user/:id/entertainments', (req, res) => {
         .then(result => {
             res.send(result)
         }).catch(err => {
-            res.send(err)
+            res.send({error: err})
         })
 
 })
@@ -33,24 +33,28 @@ route.get('/user/:id/images', (req, res) => {
             res.send(result)
         })
         .catch(err => {
-            res.status(500).json(err)
+            res.status(500).json({error: err})
         })
 
 })
 route.get('/user/:id/todolist', (req, res) => {
-    const {id} = req.params;
+    const { id } = req.params;
 
-db.findtodos(id)
+    db.findtodos(id)
+        .then(result => {
+            res.send(result)
+        }).catch(err => {
+            res.status(500).json({ error: err })
+        })
+})
+route.get('/user/:id/shoplist', (req, res) => {
+    const {id} = req.params;
+db.findshoplist(id)
 .then(result => {
     res.send(result)
 }).catch(err => {
-    res.status(500).json({message: err})
+    res.status(500).json({error: err})
 })
-})
-route.get('/user/:id/todolist', (req, res) => {
-    const partyId = req.params.id;
-
-
 })
 
 
