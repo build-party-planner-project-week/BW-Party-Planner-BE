@@ -7,6 +7,15 @@ const route = express.Router()
 
 
 //------------get routes-----------
+route.get('/:id/party/all', (req, res) => {
+    const { id } = req.params;
+    db.findPartyAll(id)
+        .then(result => {
+            res.send(result)
+        }).catch(err => {
+            res.send({ error: err })
+        })
+})
 route.get('/:id/party', (req, res) => {
     const { id } = req.params;
     db.findParty(id)
@@ -15,7 +24,6 @@ route.get('/:id/party', (req, res) => {
         }).catch(err => {
             res.send({ error: err })
         })
-
 })
 route.get('/:id/entertainments', (req, res) => {
     const { id } = req.params;

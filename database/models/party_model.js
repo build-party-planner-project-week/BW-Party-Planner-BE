@@ -20,9 +20,14 @@ module.exports = {
     deletenter,
     deletimg,
     delettodo,
-    deletshop
+    deletshop,
+    findPartyAll
 }
 
+function findPartyAll(userID) {
+    return db("parties")
+        .join("entertainments", "entertainments.party_id", "parties.id")
+}
 function findParty(userID) {
     return db("parties")
         .where({ user_id: userID })
