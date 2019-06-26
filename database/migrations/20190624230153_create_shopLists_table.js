@@ -6,6 +6,12 @@ exports.up = function(knex, Promise) {
         tbl
         .string('item')
         .notNullable()
+
+
+        tbl
+        .string('price')
+        .notNullable()
+  
   
         tbl
         .integer('party_id')

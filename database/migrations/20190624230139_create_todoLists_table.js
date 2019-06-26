@@ -8,10 +8,6 @@ exports.up = function(knex, Promise) {
         .notNullable()
 
         tbl
-        .string('price')
-        .notNullable()
-  
-        tbl
         .integer('party_id')
         .unsigned()
         .references('id')
