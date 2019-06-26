@@ -7,13 +7,14 @@ const route = express.Router()
 
 
 //------------get routes-----------
-route.get('/:id/party/all', (req, res) => {
+route.get('/:id/party/:partyid', (req, res) => {
     const { id } = req.params;
-    db.findPartyAll(id)
+    const {partyid} = req.params;
+    db.findPartyAll(id, partyid)
         .then(result => {
             res.send(result)
         }).catch(err => {
-            res.send({ error: err })
+            res.status(500).json({ error: "ERROR recieving parties" })
         })
 })
 route.get('/:id/party', (req, res) => {

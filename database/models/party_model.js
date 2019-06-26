@@ -24,14 +24,37 @@ module.exports = {
     findPartyAll
 }
 
-function findPartyAll(userID) {
+function findPartyAll(userID, partyID) {
     return db("parties")
-        // .join("entertainments", "parties.id", "entertainments.party_id")
         .where({user_id: userID})
-        .then(party => {
-            let parties = party
-            return db('entertainments')
-            .where({party_id: parties.id})
+        .then(parties => {
+           let party = (parties.filter(x => x.id === parseInt(partyID)))[0]
+           return db('entertainments')
+           .where({party_id: party.id})
+           .then(array => {
+               let entertainments = array
+               return db('images')
+               .where({party_id: party.id})
+               .then(img => {
+                   let images = img
+                   return db('shopLists')
+                   .where({party_id: party.id})
+                   .then(shop => {
+                       let shoplist = shop
+                       return db('todoLists')
+                       .where({party_id: party.id})
+                       .then(todos => {
+                        return ({
+                            ...party,
+                            entertainments: entertainments,
+                            images: images,
+                            shoplist: shoplist,
+                            todolist: todos
+                        })
+                       })
+                   })
+               })
+           })
         })
 }
 function findParty(userID) {
