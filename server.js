@@ -16,7 +16,7 @@ server.use('/api/', partyRoute)
 
 
 server.get('/', (req, res) => {
-    res.send('<h1>Server running!!</h1>')
+    res.sendFile(`${__dirname}/public/opening.html`)
 })
 
 
