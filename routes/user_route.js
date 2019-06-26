@@ -6,7 +6,6 @@ const secrets = require('../config/secrets')
 
 const route = express.Router()
 
-// const {authenticate} = require('../auth/authenticate')
 
 
 route.post('/user/register', (req, res) => {
