@@ -26,7 +26,13 @@ module.exports = {
 
 function findPartyAll(userID) {
     return db("parties")
-        .join("entertainments", "entertainments.party_id", "parties.id")
+        // .join("entertainments", "parties.id", "entertainments.party_id")
+        .where({user_id: userID})
+        .then(party => {
+            let parties = party
+            return db('entertainments')
+            .where({party_id: parties.id})
+        })
 }
 function findParty(userID) {
     return db("parties")
@@ -59,6 +65,10 @@ function findshoplist(partyID) {
 function postparty(party) {
     return db('parties')
         .insert(party, 'id')
+        .then(ids => {
+            return db('parties')
+            .where({id: ids[0]})
+        })
 }
 function postenter(enter) {
     return db('entertainments')
