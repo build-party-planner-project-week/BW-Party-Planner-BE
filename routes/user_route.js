@@ -21,6 +21,19 @@ route.post('/user/register', (req, res) => {
         res.status(500).json({message: 'ERROR posting user to the database'})
     })
 })
+route.put('/user/update/:id', (req, res) => {
+    const user = req.body
+    const hash = bcrypt.hashSync(user.password, 12)
+    user.password = hash
+    const {id} = req.params
+    db.update(user, id)
+    .then(user => {
+        res.status(201).json(user)
+    })
+    .catch(err => {
+        res.status(500).json({message: 'ERROR updating user in the database'})
+    })
+})
 
 route.post('/user/login', (req, res) => {
     const {username, password} = req.body
