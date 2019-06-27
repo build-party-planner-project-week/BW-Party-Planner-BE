@@ -5,6 +5,10 @@ exports.up = function(knex, Promise) {
       .increments('party_id')
 
       tbl
+      .string('title')
+      .notNullable()
+
+      tbl
       .integer('guests')
       .notNullable()
 
