@@ -3,7 +3,7 @@ const db = require('../database/models/party_model')
 const { authenticate } = require('../auth/authenticate.js')
 
 const route = express.Router()
-route.use(authenticate)
+// route.use(authenticate)
 
 
 //------------get routes-----------
