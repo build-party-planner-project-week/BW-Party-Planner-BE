@@ -2,7 +2,7 @@
 exports.up = function(knex, Promise) {
   return knex.schema.createTable('parties', tbl => {
       tbl
-      .increments()
+      .increments('party_id')
 
       tbl
       .integer('guests')
@@ -23,7 +23,7 @@ exports.up = function(knex, Promise) {
       tbl
       .integer('user_id')
       .unsigned()
-      .references('id')
+      .references('user_id')
       .inTable('users')
   })
 };

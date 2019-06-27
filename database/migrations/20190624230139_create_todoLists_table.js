@@ -10,7 +10,7 @@ exports.up = function(knex, Promise) {
         tbl
         .integer('party_id')
         .unsigned()
-        .references('id')
+        .references('party_id')
         .inTable('parties')
     })
   };

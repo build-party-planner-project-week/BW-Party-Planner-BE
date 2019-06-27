@@ -90,7 +90,8 @@ function postparty(party) {
         .insert(party, 'id')
         .then(ids => {
             return db('parties')
-            .where({id: ids[0]})
+            .where({id: ids})
+            .first()
         })
 }
 function postenter(enter) {
