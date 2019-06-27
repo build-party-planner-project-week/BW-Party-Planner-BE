@@ -115,7 +115,7 @@ function postshop(item) {
 
 function putparty(party, id) {
     return db('parties')
-        .where({ id: id })
+        .where({ party_id: id })
         .update(party, 'id')
 }
 function putenter(enter, id) {
@@ -143,7 +143,7 @@ function putshop(item, id) {
 
 function deletparty(id) {
     return db('parties')
-        .where({ id: id })
+        .where({ party_id: id })
         .del()
 }
 function deletenter(id) {
