@@ -74,9 +74,9 @@ route.post('/party', (req, res) => {
     const { body } = req;
     db.postparty(body)
         .then(result => {
-            res.send(result)
+            res.send({message: "successfully added party", data: result})
         }).catch(err => {
-            res.status(500).json({ error: err })
+            res.status(500).json({ error: 'failed to add party to the db' })
         })
 })
 route.post('/entertainments', (req, res) => {
