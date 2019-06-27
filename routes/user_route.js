@@ -41,7 +41,7 @@ route.post('/user/login', (req, res) => {
     .then(user => {
         if(user && bcrypt.compareSync(password, user.password)){
             const token = generateToken(user)
-            res.status(200).json({user_id: user.id, message: "login success - token generated", token: token})
+            res.status(200).json({user_id: user.user_id, message: "login success - token generated", token: token})
         }else{
             res.status(401).json({message: 'incorrect credentials'})
         }
