@@ -11,8 +11,8 @@ function add(user) {
 }
 function update(user, id) {
     return db('users').where({id: id}).update(user)
-    .then(res => {
-        return findbyid(res)
+    .then(id => {
+        return findbyid(id)
     })
 }
 function findby(filter) {
@@ -20,5 +20,5 @@ function findby(filter) {
 }
 
 function findbyid(id){
-    return db('users').where({id: id}).first()
+    return db('users').where({id: id})
 }
