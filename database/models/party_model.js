@@ -87,10 +87,10 @@ function findshoplist(partyID) {
 
 function postparty(party) {
     return db('parties')
-        .insert(party, 'id')
+        .insert(party, 'party_id')
         .then(ids => {
             return db('parties')
-            .where({id: ids[0]})
+            .where({party_id: ids[0]})
             .first()
         })
 }
