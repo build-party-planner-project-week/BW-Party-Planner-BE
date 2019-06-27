@@ -29,9 +29,11 @@ exports.up = function(knex, Promise) {
       .unsigned()
       .references('user_id')
       .inTable('users')
+      .onDelete('CASCADE')
+      .onUpdate('CASCADE')
   })
 };
 
 exports.down = function(knex, Promise) {
-  return knex.schema.dropTable('parties')
+  return knex.schema.dropTableIfExists('parties')
 };
