@@ -10,11 +10,11 @@ const user = {
 }
 describe('user_model.js', () => {
     beforeEach(async () => {
-    await db('users').truncate()
-  })
+        await db('users').truncate()
+    })
     describe('add()', () => {
         it('should insert a user to the database', async () => {
-             await add(user);
+            await add(user);
             const users = await db('users')
             expect(users).toHaveLength(1)
         })
@@ -35,14 +35,14 @@ describe('user_model.js', () => {
         it('should update a user in the database', async () => {
             await add(user)
             const newUser = await findby(user)
-            const updatedUser = await update({...newUser, username: "bob"}, newUser.user_id)
+            const updatedUser = await update({ ...newUser, username: "bob" }, newUser.user_id)
             expect(updatedUser.username).toEqual('bob')
         })
         it('should return the user updated', async () => {
             await add(user)
             const newUser = await findby(user)
-            const updateUser = await update({...newUser, username:'bob'}, newUser.user_id)
-            expect(updateUser).toEqual({...newUser, username: 'bob'})
+            const updateUser = await update({ ...newUser, username: 'bob' }, newUser.user_id)
+            expect(updateUser).toEqual({ ...newUser, username: 'bob' })
         })
     })
 })
