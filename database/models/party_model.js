@@ -26,35 +26,36 @@ module.exports = {
 
 function findPartyAll(userID, partyID) {
     return db("parties")
-        .where({user_id: userID})
+        .where({ user_id: userID })
         .then(parties => {
-           let party = (parties.filter(x => x.id === parseInt(partyID)))[0]
-           return db('entertainments')
-           .where({party_id: party.id})
-           .then(array => {
-               let entertainments = array
-               return db('images')
-               .where({party_id: party.id})
-               .then(img => {
-                   let images = img
-                   return db('shopLists')
-                   .where({party_id: party.id})
-                   .then(shop => {
-                       let shoplist = shop
-                       return db('todoLists')
-                       .where({party_id: party.id})
-                       .then(todos => {
-                        return ({
-                            ...party,
-                            entertainments: entertainments,
-                            images: images,
-                            shoplist: shoplist,
-                            todolist: todos
+            let party = (parties.filter(x => x.id === parseInt(partyID)))[0]
+            console.log(party)
+            return db('entertainments')
+                .where({ party_id: party.id })
+                .then(array => {
+                    let entertainments = array
+                    return db('images')
+                        .where({ party_id: party.id })
+                        .then(img => {
+                            let images = img
+                            return db('shopLists')
+                                .where({ party_id: party.id })
+                                .then(shop => {
+                                    let shoplist = shop
+                                    return db('todoLists')
+                                        .where({ party_id: party.id })
+                                        .then(todos => {
+                                            return ({
+                                                ...party,
+                                                entertainments: entertainments,
+                                                images: images,
+                                                shoplist: shoplist,
+                                                todolist: todos
+                                            })
+                                        })
+                                })
                         })
-                       })
-                   })
-               })
-           })
+                })
         })
 }
 function findParty(userID) {
@@ -90,8 +91,8 @@ function postparty(party) {
         .insert(party, 'party_id')
         .then(ids => {
             return db('parties')
-            .where({party_id: ids[0]})
-            .first()
+                .where({ party_id: ids[0] })
+                .first()
         })
 }
 function postenter(enter) {
