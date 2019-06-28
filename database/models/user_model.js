@@ -7,12 +7,12 @@ module.exports = {
 }
 
 function add(user) {
-    return db('users').insert(user)
+    return db('users').insert(user, "user_id")
 }
 function update(user, id) {
     return db('users').where({user_id: id}).update(user)
     .then(() => {
-        return findbyid(id)
+        return findbyid(id).first()
     })
 }
 function findby(filter) {
