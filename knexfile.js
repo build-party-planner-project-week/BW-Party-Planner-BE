@@ -23,6 +23,16 @@ module.exports = {
     migrations: {
       directory: './database/migrations'
     }
+  },
+  testing: {
+    client: 'sqlite3',
+    useNullAsDefault: true,
+    connection: {
+      filename: './database/testdb.db3'
+    },
+    migrations: {
+      directory: './database/migrations'
+    }
   }
 
 };

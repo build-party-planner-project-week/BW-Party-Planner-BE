@@ -14,7 +14,7 @@ route.get('/:id/party/:partyid', (req, res) => {
         .then(result => {
             res.send(result)
         }).catch(err => {
-            res.status(500).json({ error: "ERROR recieving parties" })
+            res.status(500).json({ error: "could not recieve data" })
         })
 })
 route.get('/:id/party', (req, res) => {
@@ -23,7 +23,7 @@ route.get('/:id/party', (req, res) => {
         .then(result => {
             res.send(result)
         }).catch(err => {
-            res.send({ error: err })
+            res.send({ error: "could not recieve data" })
         })
 })
 route.get('/:id/entertainments', (req, res) => {
@@ -32,7 +32,7 @@ route.get('/:id/entertainments', (req, res) => {
         .then(result => {
             res.send(result)
         }).catch(err => {
-            res.send({ error: err })
+            res.send({ error: "could not recieve data" })
         })
 
 })
@@ -43,7 +43,7 @@ route.get('/:id/images', (req, res) => {
             res.send(result)
         })
         .catch(err => {
-            res.status(500).json({ error: err })
+            res.status(500).json({ error: "could not recieve data" })
         })
 
 })
@@ -54,7 +54,7 @@ route.get('/:id/todolist', (req, res) => {
         .then(result => {
             res.send(result)
         }).catch(err => {
-            res.status(500).json({ error: err })
+            res.status(500).json({ error: "could not recieve data" })
         })
 })
 route.get('/:id/shoplist', (req, res) => {
@@ -63,7 +63,7 @@ route.get('/:id/shoplist', (req, res) => {
         .then(result => {
             res.send(result)
         }).catch(err => {
-            res.status(500).json({ error: err })
+            res.status(500).json({ error: "could not recieve data" })
         })
 })
 
@@ -76,7 +76,7 @@ route.post('/party', (req, res) => {
         .then(result => {
             res.send({message: "successfully added party", data: result})
         }).catch(err => {
-            res.status(500).json({ error: 'failed to add party to the db' })
+            res.status(500).json({ error: 'failed to add to the db' })
         })
 })
 route.post('/entertainments', (req, res) => {
@@ -86,7 +86,7 @@ route.post('/entertainments', (req, res) => {
             res.send(results)
         })
         .catch(err => {
-            res.status(500).json({ error: err })
+            res.status(500).json({ error: 'failed to add to the db' })
         })
 })
 route.post('/images', (req, res) => {
@@ -96,7 +96,7 @@ route.post('/images', (req, res) => {
             res.send(results)
         })
         .catch(err => {
-            res.status(500).json({ error: err })
+            res.status(500).json({ error: 'failed to add to the db' })
         })
 })
 route.post('/todolist', (req, res) => {
@@ -106,7 +106,7 @@ route.post('/todolist', (req, res) => {
             res.send(results)
         })
         .catch(err => {
-            res.status(500).json({ error: err })
+            res.status(500).json({ error: 'failed to add to the db' })
         })
 })
 route.post('/shoplist', (req, res) => {
@@ -116,7 +116,7 @@ route.post('/shoplist', (req, res) => {
             res.send(results)
         })
         .catch(err => {
-            res.status(500).json({ error: err })
+            res.status(500).json({ error: 'failed to add to the db' })
         })
 })
 
@@ -129,7 +129,7 @@ route.put('/:id/party', (req, res) => {
         .then(results => {
             res.send({message: 'Success'})
         }).catch(err => {
-            res.status(500).json({ error: err })
+            res.status(500).json({ error: 'failed to add to the db' })
         })
 })
 route.put('/:id/entertainments', (req, res) => {
@@ -139,7 +139,7 @@ route.put('/:id/entertainments', (req, res) => {
         .then(result => {
             res.send({message: 'Success'})
         }).catch(err => {
-            res.status(500).json({ error: err })
+            res.status(500).json({ error: 'failed to add to the db' })
         })
 })
 route.put('/:id/images', (req, res) => {
@@ -150,7 +150,7 @@ route.put('/:id/images', (req, res) => {
             res.send({message: 'Success'})
         })
         .catch(err => {
-            res.status(500).json({ error: err })
+            res.status(500).json({ error: 'failed to add to the db' })
         })
 })
 route.put('/:id/todolist', (req, res) => {
@@ -161,7 +161,7 @@ route.put('/:id/todolist', (req, res) => {
             res.send({message: 'Success'})
         })
         .catch(err => {
-            res.status(500).json({ error: err })
+            res.status(500).json({ error: 'failed to add to the db' })
         })
 })
 route.put('/:id/shoplist', (req, res) => {
@@ -172,7 +172,7 @@ route.put('/:id/shoplist', (req, res) => {
             res.send({message: 'Success'})
         })
         .catch(err => {
-            res.status(500).json({ error: err })
+            res.status(500).json({ error: 'failed to add to the db' })
         })
 })
 
@@ -183,7 +183,7 @@ route.delete('/:id/party', (req, res) => {
         .then(result => {
             res.send({message: 'Success'})
         }).catch(err => {
-            res.send({ error: err })
+            res.send({ error: 'failed to remove to the db' })
         })
 })
 route.delete('/:id/entertainments', (req, res) => {
@@ -192,7 +192,7 @@ route.delete('/:id/entertainments', (req, res) => {
         .then(result => {
             res.send({message: 'Success'})
         }).catch(err => {
-            res.send({ error: err })
+            res.send({ error: 'failed to remove to the db' })
         })
 
 })
@@ -203,7 +203,7 @@ route.delete('/:id/images', (req, res) => {
             res.send({message: 'Success'})
         })
         .catch(err => {
-            res.status(500).json({ error: err })
+            res.status(500).json({ error: 'failed to remove to the db' })
         })
 
 })
@@ -214,7 +214,7 @@ route.delete('/:id/todolist', (req, res) => {
         .then(result => {
             res.send({message: 'Success'})
         }).catch(err => {
-            res.status(500).json({ error: err })
+            res.status(500).json({ error: 'failed to remove to the db' })
         })
 })
 route.delete('/:id/shoplist', (req, res) => {
@@ -223,7 +223,7 @@ route.delete('/:id/shoplist', (req, res) => {
         .then(result => {
             res.send({message: 'Success'})
         }).catch(err => {
-            res.status(500).json({ error: err })
+            res.status(500).json({ error: 'failed to remove to the db' })
         })
 })
 
